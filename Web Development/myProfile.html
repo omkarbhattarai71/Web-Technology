@@ -53,22 +53,25 @@ img {
         <h2>Dashboard</h2>
         <h3> 
             <ul>
-                <li>Introduction</li>
-                <li>Lists </li>
-                <li>My Image</li>
-                <li>Time Table</li>
-                <li>Infrastructure of Sharda University</li>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#hoby">My Hobbies</a> </li>
+                <li><a href="#img">My Image</a></li>
+                <li><a href="#tt">Time Table</a></li>
+                <li><a href="#isu">Infrastructure of Sharda University</a></li>
+                <li><a href="#srf">Student Registration Form</a></li>
+                <li><a href="#coord">Co-ordinates</a></li>
+                <li><a href="#upload">Uploading Files</a></li>
                 
             </ul>
         </h3>
     </div>
 
     <div class="col2" >
-        <h2 class = "reach1">Introduction</h2>
+        <h2 class = "reach1"><a name="intro">Introduction</a></h2>
         <p align="justify">
             &emsp;A Computer Science undergraduate student with a strong foundation in programming languages such as Python, Java, and C. Proficient in data structures, algorithms, and software development. Experienced in developing web applications through projects and internships at Google Cloud. Passionate about utilizing technology to solve real-world problems and continuously improving skills through self-learning and collaboration with peers. Seeking a challenging role in a dynamic and fast-paced environment to contribute to the growth of the company and enhance personal development. <br> <br> 
             &emsp;My name is Omkar Bhattarai from Nepal pursuing Bachelor of Technology in Computer Science and Engineering. Click on <a href="https://www.sharda.ac.in/", target="_blank">Educational Details</a> for my educational qualifications. For my certificates, please the link <a href="https://www.hackerrank.com/certificates/fe1bb19a7e55", target="_blank">Cerificates</a>.
-            <h2 class="reach2">My Hobbies</h2>
+            <h2 class="reach2"><a name="hoby">My Hobbies</a></h2>
             <ul>
                 <li>Playing the Chess</li>
                 <li>Reading Newspapers</li>
@@ -76,11 +79,11 @@ img {
                 <li>Watching movies late night.</li>
             </ul>
         </p>
-        <a href="https://www.facebook.com/photo/?fbid=3001548043463821&set=a.1393063664312275", target="_blank"><h2>My Image</h2></a>   
+        <a href="https://www.facebook.com/photo/?fbid=3001548043463821&set=a.1393063664312275", target="_blank"><h2><a name="img">My Image</a></h2></a>   
         <a href="https://www.facebook.com/photo/?fbid=3001548043463821&set=a.1393063664312275", target="_blank"><img src="pp.jpg" alt="My profile picture" width="875" height="800"></a>
         <br> <br>
         <marquee direction="right" width="75%">Sharda University: Section-F</marquee>
-        <h2>Time Table</h2>
+        <h2><a name="tt">Time Table</a></h2>
         <div>
             <table border="double"> 
                 <!-- <caption style="text-align:left"><b>Time Table</b></caption> -->                
@@ -220,7 +223,7 @@ img {
                 </tbody>
             </table>
             <br>
-            <h2>Infrastructure of Sharda University</h2>
+            <h2><a name="isu">Infrastructure of Sharda University</a></h2>
             <table border="double">
                 <tr>
                 <th><span style="color: rgb(50, 50, 63)">Facility</span></th>
@@ -253,9 +256,81 @@ img {
             </table>          
         </div>
         <br>
-        <div> <a href="#" class="top">Go to Top</a></div>  
-    </div>
         
+        <h2><a name="srf">Student Registration Form</a></h2>
+        <div class="regform">
+            <form action="backend.php" method="post">
+            
+                <div>
+                    First Name: <input type="text" name="Fname"> 
+                </div>
+                <br>
+                <div>
+                    Last Name: <input type="text" name="Lname"> 
+                </div>
+                <br>
+                <div>
+                    Date of Birth: <input type="datetime", name="dob"> 
+                </div>
+                <br>
+                <div>
+                    Email: <input type="email" name="mail"> 
+                </div>
+                <br>
+                <div>
+                    Password: <input type="password"  name="pass">  
+                </div>
+                <br>
+                <div>
+                    Phone Number: <input type="number", name="contact"> 
+                </div>
+                <br>
+                <div>
+                    Submit: <input type="submit"  value="Submit Now" name="sub1"> 
+                </div>
+            </form>
+            </div>
+
+            <div>
+            <p id="geoLoc"><h2><a name="coord">Co-ordinates</a></h2></p>
+            <button onclick="getLocation()">Click to get Coordinates</button>
+                <div>
+                    <script>
+                        function getLocation() {
+                            if (navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(showPosition);
+                            } 
+                        else {
+                            document.getElementById("geoLoc").innerHTML = "Geolocation is not supported by this browser.";
+                        }
+                        }
+
+                        function showPosition(position) {
+                            document.getElementById("geoLoc").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <div>
+            <h2><a name="upload">Uploading Files</a></h2>
+            <form action="backend.php">
+                <div>
+                Upload Resume: <input type="file" name="resume">
+            </div>
+            <br>
+            <div>
+                Upload Certificates: <input type="file" name="certificate">
+            </div>
+            <br>
+            <div>
+                Submit: <input type="submit" name="sub2">
+            </div>
+            </form>
+        </div>
+        <div> <a href="#" class="top">Go to Top</a></div> 
+    </div>
+    
     <div class="col3">
         <h3>Remarks</h3>
     </div>   
