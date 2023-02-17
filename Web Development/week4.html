@@ -1,33 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Application</title>
+  <script src="canvaScript.js"></script>
 </head>
 <body>
-<p>Click the button to get your coordinates.</p>
+  <div>
+    <p><h2 name="html5">HTML5</h2></p>
+    <div>
+      <p><h3>Creation of a Canvas</h3></p>
+      <canvas id="myCanvas" width="200" height="200"></canvas>
+      <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "green";
+        ctx.fillRect(50, 50, 100, 100);
+      </script>
+    </div>
+    <div>
+      <h3>Rectangular Stripped Canvas</h3>
+      <canvas id ="myCanvas1" width="400" height="150"></canvas>
+    </div> 
 
-<button onclick="getLocation()">Try It</button>
+    <div>
+      <h3>Rectangular Crossed Canvas</h3>
+      <button onclick="canvas()">Click for second canvas</button>
+      <canvas id ="myCanvas2" width="200" height="200"></canvas>     
+      <script>
+        function canvas(){
+          var myCanvas2 = document.getElementById("myCanvas2");
+          var context = myCanvas2.getContext("2d");
+          var myImg2 = new Image();
+          myImg2.src = "canva2.png"
+          myImg2.onload = function(){
+              context.fillStyle = context.createPattern(myImg2, "no-repeat");
+              context.fillRect(0,0,200,200)
+          }
+        }
+      </script>
+    </div>
 
-<p id="demo"></p>
+    <div>
+      <h3>Click to play audio</h3>
+      <audio src="LagiLagan.mp3" controls width="100%"></audio>
+    </div>
 
-<script>
-var x = document.getElementById("demo");
+    <div>
+      <h3>Click to play video</h3>
+      <video src="LagiLagan.mp4" controls width="100%"></video>
+    </div>
+    <br>
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+    <div>
+      <p><h3>Current Updated Geo-Location</h3></p>
+      <p id = "showPosition""></p>
+        <script>
+        // Request permission to access the user's location
+          navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
-</script> 
+        // Define a success callback function to get the user's location
+        function successCallback(position) {
+          var latitude = position.coords.latitude;
+          var longitude = position.coords.longitude;
+
+          // Update the user's location in the page
+          document.getElementById("showPosition").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+        }
+
+        // Define an error callback function in case the user denies permission
+        function errorCallback(error) {
+          console.log("Error getting location: " + error.message);
+        }
+
+        // Continuously update the user's location using watchPosition()
+        var watchId = navigator.geolocation.watchPosition(successCallback, errorCallback);
+        // console.log(watchId);
+
+      </script>
+    </div>
+  </div>
 </body>
 </html>

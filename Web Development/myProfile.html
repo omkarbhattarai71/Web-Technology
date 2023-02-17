@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
-
+    <script src="canvaScript.js"></script>
     <style>
         *{
             box-sizing: border-box;
@@ -61,6 +61,7 @@ img {
                 <li><a href="#srf">Student Registration Form</a></li>
                 <li><a href="#coord">Co-ordinates</a></li>
                 <li><a href="#upload">Uploading Files</a></li>
+                <li><a href="#html5">HTML5</a></li>
                 
             </ul>
         </h3>
@@ -259,7 +260,7 @@ img {
         
         <h2><a name="srf">Student Registration Form</a></h2>
         <div class="regform">
-            <form action="backend.php">
+            <form>
             
                 <div>
                     First Name: <input type="text" name="Fname"> 
@@ -282,12 +283,26 @@ img {
                 </div>
                 <br>
                 <div>
-                    Phone Number: <input type="number", name="contact"> 
+                    Phone Number:
+                    <input type="text" size="1" name="Country Code" value="+977"> 
+                    <input type="text" size="10" name="Phone"> 
+                </div>
+                <br>
+                <div>
+                    Gender:
+                    <input type="radio" name="male"/>Male 
+                    <input type="radio" name="female"/> Female
+                    <input type="radio" name="other"/>Others
+                </div>
+                <br>
+                <div>
+                    Address: <br><textarea name="textArea" value="address" cols="30" rows="5">Enter your Address</textarea>
+                    
                 </div>
                 <br>
                 <div>
                     <input type="submit"  value="Submit" name="sub1"> 
-                </div>
+                </div
             </form>
             </div>
 
@@ -296,7 +311,8 @@ img {
             <div>
                 <!-- <p id="geoLoc"><h2><a name="coord">Co-ordinates</a></h2></p>     #This shows the location @ upper side.
         <button onclick="getLocation()">Click to get Coordinates</button> -->
-                <p><h2>Co-ordinates</h2></p>
+                <p><h2><a name="coord">Co-ordinates</a></h2></p>
+                <!-- <p><h2>Co-ordinates</h2></p> -->
                 <button onclick="getLocation()">Click to get Coordinates</button>                
                 <p id="geoLoc"></p>
                 <script>
@@ -328,10 +344,84 @@ img {
             <br>
             <div>
                 <input type="submit" name="sub2">
-            </div>
-            
+            </div>            
             </form>
         </div>
+        <div>
+            <p><h2><a name="html5">HTML5</a></h2></p>
+            <div>
+              <p><h3>Creation of a Canvas</h3></p>
+              <canvas id="myCanvas" width="200" height="200"></canvas>
+              <script>
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "green";
+                ctx.fillRect(50, 50, 100, 100);
+              </script>
+            </div>
+            <div>
+              <h3>Rectangular Stripped Canvas</h3>
+              <canvas id ="myCanvas1" width="400" height="150"></canvas>
+            </div> 
+        
+            <div>
+              <h3>Rectangular Crossed Canvas</h3>
+              <button onclick="canvas()">Click for second canvas</button>
+              <canvas id ="myCanvas2" width="200" height="200"></canvas>     
+              <script>
+                function canvas(){
+                  var myCanvas2 = document.getElementById("myCanvas2");
+                  var context = myCanvas2.getContext("2d");
+                  var myImg2 = new Image();
+                  myImg2.src = "canva2.png"
+                  myImg2.onload = function(){
+                      context.fillStyle = context.createPattern(myImg2, "no-repeat");
+                      context.fillRect(0,0,200,200)
+                  }
+                }
+              </script>
+            </div>
+        
+            <div>
+              <h3>Click to play audio</h3>
+              <audio src="LagiLagan.mp3" controls width="100%"></audio>
+            </div>
+        
+            <div>
+              <h3>Click to play video</h3>
+              <video src="LagiLagan.mp4" controls width="100%"></video>
+            </div>
+            <br>
+        
+            <div>
+              <p><h3>Current Updated Geo-Location</h3></p>
+              <p id = "showPosition""></p>
+                <script>
+                // Request permission to access the user's location
+                  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        
+                // Define a success callback function to get the user's location
+                function successCallback(position) {
+                  var latitude = position.coords.latitude;
+                  var longitude = position.coords.longitude;
+        
+                  // Update the user's location in the page
+                  document.getElementById("showPosition").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+                }
+        
+                // Define an error callback function in case the user denies permission
+                function errorCallback(error) {
+                  console.log("Error getting location: " + error.message);
+                }
+        
+                // Continuously update the user's location using watchPosition()
+                var watchId = navigator.geolocation.watchPosition(successCallback, errorCallback);
+                // console.log(watchId);
+        
+              </script>
+            </div>
+          </div>
+
         <br><div> <a href="#" class="top">Go to Top</a></div> 
     </div>
     
