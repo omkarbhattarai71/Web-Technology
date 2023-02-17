@@ -259,7 +259,7 @@ img {
         
         <h2><a name="srf">Student Registration Form</a></h2>
         <div class="regform">
-            <form action="backend.php" method="post">
+            <form action="backend.php">
             
                 <div>
                     First Name: <input type="text" name="Fname"> 
@@ -286,49 +286,53 @@ img {
                 </div>
                 <br>
                 <div>
-                    Submit: <input type="submit"  value="Submit Now" name="sub1"> 
+                    <input type="submit"  value="Submit" name="sub1"> 
                 </div>
             </form>
             </div>
 
+            
+        
             <div>
-            <p id="geoLoc"><h2><a name="coord">Co-ordinates</a></h2></p>
-            <button onclick="getLocation()">Click to get Coordinates</button>
-                <div>
-                    <script>
-                        function getLocation() {
-                            if (navigator.geolocation) {
-                                navigator.geolocation.getCurrentPosition(showPosition);
-                            } 
-                        else {
-                            document.getElementById("geoLoc").innerHTML = "Geolocation is not supported by this browser.";
-                        }
-                        }
+                <!-- <p id="geoLoc"><h2><a name="coord">Co-ordinates</a></h2></p>     #This shows the location @ upper side.
+        <button onclick="getLocation()">Click to get Coordinates</button> -->
+                <p><h2>Co-ordinates</h2></p>
+                <button onclick="getLocation()">Click to get Coordinates</button>                
+                <p id="geoLoc"></p>
+                <script>
+                    function getLocation() {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(showPosition);
+                        } 
+                    else {
+                        document.getElementById("geoLoc").innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                    }
 
-                        function showPosition(position) {
-                            document.getElementById("geoLoc").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-                        }
-                    </script>
-                </div>
+                    function showPosition(position) {
+                        document.getElementById("geoLoc").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+                    }
+                </script>
             </div>
-
+            
             <div>
             <h2><a name="upload">Uploading Files</a></h2>
             <form action="backend.php">
                 <div>
-                Upload Resume: <input type="file" name="resume">
+                Upload Resume: <input type="file" name="resume" accept=".pdf">
             </div>
             <br>
             <div>
-                Upload Certificates: <input type="file" name="certificate">
+                Upload Certificates: <input type="file" name="certificate" accept=".pdf">
             </div>
             <br>
             <div>
-                Submit: <input type="submit" name="sub2">
+                <input type="submit" name="sub2">
             </div>
+            
             </form>
         </div>
-        <div> <a href="#" class="top">Go to Top</a></div> 
+        <br><div> <a href="#" class="top">Go to Top</a></div> 
     </div>
     
     <div class="col3">

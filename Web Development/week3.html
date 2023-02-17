@@ -8,7 +8,7 @@
     
     <h2>Student Registration Form</h2>
     <div class="regform">
-      <form action="backend.php" method="post">
+      <form action="backend.php">
       
         <div>
           First Name: <input type="text" name="Fname"> 
@@ -35,29 +35,29 @@
         </div>
         <br>
         <div>
-          Submit: <input type="submit"  value="Submit Now" name="sub1"> 
+          <input type="submit"  value="Submit" name="sub1"> 
         </div>
       </form>
     </div>
 
     <div>
-      <p id="geoLoc"><h2>Co-ordinates</h2></p>
-        <div>
-          <script>
-            function getLocation() {
+      <p><h2>Co-ordinates</h2></p>
+      <button onclick="getLocation()">Click to get Coordinates</button>                
+      <p id="geoLoc"></p>
+      <script>
+          function getLocation() {
               if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+                  navigator.geolocation.getCurrentPosition(showPosition);
               } 
-              else {
-                document.getElementById("geoLoc").innerHTML = "Geolocation is not supported by this browser.";
-              }
-            }
-            function showPosition(position) {
+          else {
+              document.getElementById("geoLoc").innerHTML = "Geolocation is not supported by this browser.";
+          }
+          }
+
+          function showPosition(position) {
               document.getElementById("geoLoc").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-            }
-          </script>
-        </div>
-      <button onclick="getLocation()">Click to get Coordinates</button>
+          }
+      </script>
     </div>
 
     <div>
@@ -72,7 +72,7 @@
       </div>
       <br>
       <div>
-        Submit: <input type="submit" name="sub2">
+        <input type="submit" name="sub2" value="Submit">
       </div>
       </form>
     </div>
