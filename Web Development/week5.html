@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital City of Countries</title>
+    <style>
+        p{
+            color: green;
+            font-weight: bold;
+            font-size: 50;
+        }
+        body{
+            background-color: pink;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #container{
+            font-size: 20px;
+            padding: 9px;
+            border-radius: 4px;
+            width: 100%;
+        }
+        img {
+            display:block;
+            margin:auto;
+            padding-left: auto;
+            width: 400px;
+            height: 400px;
+            border:10px;            
+            box-shadow: 100px 100px 100px 10px rgb(136, 153, 146);            
+        }
+        script {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 25px;
+        }
+    </style>
+    
+</head>
+<body bgcolor="pink">
+    <script language = "javascript">
+        function capitalCity(){
+            var county= document.forms["frm"].country.value;
+            var capital = "SELECT A COUNTRY";
+            if(county=="nepal")
+            {
+                capital = "KATHMANDU";
+            }
+            if(county=="india")
+            {
+                capital = "NEW DELHI";
+            }
+            if(county=="pakistan")
+            {
+                capital = "ISLAMABAD";
+            }
+            if(county=="usa")
+            {
+                capital = "NEW YORK";
+            }
+            if(county=="australia")
+            {
+                capital = "SIDNEY";
+            }
+            if(county=="select")
+            {
+                capital = "SELECT A COUNTRY";
+            }
+            document.getElementById("capit").innerHTML=capital;
+        }
+    </script>
+    <div id="container">
+        <form name="frm">
+            <br>
+            <p>Select a Country:</p><select name ="country" onchange="capitalCity()">
+                <option value="select">--Select--</option>
+                <option value="nepal">Nepal</option>
+                <option value="india">India</option>
+                <option value="pakistan">Pakistan</option>
+                <option value="usa">United States of America</option>
+                <option value="australia">Australia</option>
+            </select>
+            <br>
+            <br>
+            <font color="red" size="4">CAPITAL IS: </font>
+            <p id="capit"></p>
+        </form>
+        <img src="img1.jpg" alt="Picture of Bird" align="left">
+    </div>
+</body>
+</html>
+
