@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Script</title>
+</head>
+<body bgcolor="pink">
+  <div>
+    <p name = "jscript"><h2>Javascript</h2></p> 
+    <p><h4>Check if first character is Uppercase or not</h4></p>
+    <p style="color:blue">The Characters to check are <i>"Hello"</i> and <i>"mam"</i></p>
+    <script>
+      function UpperCase(str){
+        var firstCharacter = str.charAt(0);
+        var isUpper = /^[A-Z]/.test(firstCharacter);
+        return isUpper;
+      }
+      document.write("For <b>'Hello'</b>: <br>");
+      document.write("&nbsp It is "+ UpperCase("Hello")); 
+      document.writeln("<br>"); 
+      document.writeln("For <b>'mam'</b>: <br>");
+      document.write("&nbsp It is "+ UpperCase("mam")); 
+    </script>
+    <hr color="blue">
+  </div>
+
+  <div>
+    <h4>Email Pattern: <i>/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/</i></h4>
+    <script>
+      function emailPattern(email){
+        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var isValidMail = emailPattern.test(email);
+        return isValidMail;
+      }
+      document.writeln("Email is: 'omkarbhattarai71@gmail.com'<br>")
+      document.writeln("Validity = "+emailPattern('omkarbhattarai71@gmail.com'));
+    </script>
+    <hr color="blue">
+  </div>
+  <div>
+  <h4>Thousands Separator</h4>
+  <script>
+    function thousandSeparator(num){
+      var partition = num.toString().split(".");
+      partition[0] = partition[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return partition.join(".");
+    }
+
+    document.write("<b>Input:</b>  <i>1389865.89</i><br><b>Output</b>: <i>"+ thousandSeparator(1389865.89)+"</i>");
+  </script>
+  <hr color="blue">
+  </div>
+
+</body>
+</html>
