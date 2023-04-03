@@ -300,6 +300,9 @@
                 <div>
                     Password: <input type="password"  name="pass">  
                 </div>
+                <div>
+                    Retype Password: <input type="password"  name="pass">  
+                </div>
                 <br>
                 <div>
                     Phone Number:
@@ -320,22 +323,19 @@
                 </div>
                 <br>
                 <div>
-                    <input type="submit"  value="Submit" name="sub1"> 
+                    <button type="button" onclick="validateEmail()">Submit</button> 
                 </div
             </form>
 
             <script>
-                function validadeEmail(){
+                function validateEmail(){
                     var mail = document.getElementById("emailForm").value;
-                    var pattern  = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if(pattern.test(mail)){
-                        alert("Valid email Address");
-                    }
-                    else{
+                    var pattern  = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if(!pattern.test(mail)){
                         alert("Invalid email Address");
-                    }                   
+                    }                                       
                 }
-
+                
             </script>
             </div>
 
