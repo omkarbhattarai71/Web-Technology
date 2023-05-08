@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table,
+        th,
+        tr {
+            background-color: grey;
+            color: pink;
+        }
+    </style>
+    <title>Test Codes</title>
+</head>
+
+<body>
+    <h2>I want to test some codes</h2>
+    <table border="1">
+        <tr>
+            <th>S.N</th>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Omkar</td>
+            <td>Bhattarai</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Bikash</td>
+            <td>Acharya</td>
+            <td>24</td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        // function over() { document.write("Mouse Over"); }
+        // function out() { document.write("Mouse Out"); }            
+    </script>
+    <p>Bring your mouse inside the division to see the result:</p>
+    <div onmouseover="over()" onmouseout="out()">
+        <h2> This is inside the division </h2>
+        <p>Hello World, Come Here.</p>
+    </div>
+
+    <script>
+        window.prompt("Hi");
+        alert("Do not mouseover 'This is inside division part'");
+    </script>
+
+
+    <h2>JavaScript Prompt</h2>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <h2 id="demo"></h2>
+
+    <script>
+        function myFunction() {
+            var txt;
+            var person = prompt("Please enter your name:", "Harry Potter");
+            if (person == null || person == "") {
+                txt = "User cancelled the prompt.";
+            } else {
+                txt = "Hello " + person + "! How are you today?";
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+
+
+    <p>Click the button to display a confirm box.</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <script>
+        function myFunction() {
+            confirm("Press a button!");
+        }
+    </script>
+
+
+</body>
+
+</html>
